@@ -18,11 +18,13 @@ export class YearsComponentComponent implements OnInit {
   private isLastPage: boolean;
   private startYear: number;
   private endYear: number;
+  public selectedYear: number;
 
   ngOnInit() {
-    this.currentPage = 1;
+    this.currentPage = 5;
+    this.selectedYear = 2018;
     this.isFirstPage = true;
-    for (let i = 1961; i <= 2030; i++) {
+    for (let i = 1961; i <= 2031; i++) {
       this.years.push(i);
       this.fillDisplayedYears();
     }
@@ -42,12 +44,12 @@ export class YearsComponentComponent implements OnInit {
   }
 
   private setButtonsEnabled() {
-    if (this.currentPage === 1) {
+    if (this.currentPage === 0) {
       this.isFirstPage = true;
     } else {
       this.isFirstPage = false;
     }
-    if ((this.currentPage + 1) * this.pageSize >= this.years.length) {
+    if ((this.currentPage + 2) * this.pageSize >= this.years.length) {
       this.isLastPage = true;
     } else {
       this.isLastPage = false;
@@ -70,4 +72,11 @@ export class YearsComponentComponent implements OnInit {
     }
   }
 
+  onDateClick(year) {
+    this.selectedYear = year;
+  }
+
+  onAllTimeClick() {
+    this.selectedYear = 0;
+  }
 }
