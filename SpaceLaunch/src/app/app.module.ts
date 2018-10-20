@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { MenuComponent } from './menu/menu.component';
 import { ListOfLaunchesComponent } from './list-of-launches/list-of-launches.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { YearsComponentComponent } from './years-component/years-component.compo
     AppComponent,
     MenuComponent,
     LaunchComponent,
+    ListOfLaunchesComponent,
     YearsComponentComponent
   ],
   imports: [
