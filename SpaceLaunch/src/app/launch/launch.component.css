@@ -1,5 +1,6 @@
-.rocket-launche {
+.rocket-launch {
     text-align: left;
+    width: 320px;
 }
 
 .name-rocket-launch {
@@ -7,19 +8,29 @@
     line-height: 24px;
     color: #ffffff;
     font-weight: 800;
-    width: 320px;
     height: 48px;
+    margin-top: 24px;
 }
 
 .period-rocket-launch {
     line-height: 16px;
     color: #ffffff;
-    width: 320px;
     margin-top: 16px;
     margin-bottom: 16px;
 }
 
 .date-rocket-launch {
+    margin-left: 12px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.75)
+}
+
+.location-rocket-launch-div {
+    margin-top: 8px;
+    margin-bottom: 14px;
+}
+
+.location-rocket-launch {
     margin-left: 12px;
     line-height: 24px;
     color: rgba(255, 255, 255, 0.75)
