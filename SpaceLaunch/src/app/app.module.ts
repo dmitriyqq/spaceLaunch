@@ -6,11 +6,13 @@ import { ListOfLaunchesComponent } from './list-of-launches/list-of-launches.com
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LaunchComponent } from './launch/launch.component';
+import { YearsComponentComponent } from './years-component/years-component.component';
 @NgModule({
    declarations: [
       AppComponent,
       ListOfLaunchesComponent,
-      LaunchComponent
+      LaunchComponent,
+      YearsComponentComponent
    ],
    imports: [
       BrowserModule,
