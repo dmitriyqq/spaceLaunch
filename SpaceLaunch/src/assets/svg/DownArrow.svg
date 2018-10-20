@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>DownArrow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-205.000000, -387.000000)">
+            <g id="меню-запуски" transform="translate(128.000000, 195.000000)">
+                <g id="Close" transform="translate(0.000000, 192.000000)">
+                    <g id="DownArrow" transform="translate(77.000000, 0.000000)">
+                        <rect id="Rectangle" x="0" y="0" width="16" height="16"></rect>
+                        <path d="M14.1484532,6.31249322 L8.35157126,12.1015626 C8.15625853,12.2968754 7.84375816,12.2968754 7.64844543,12.1015626 L1.85156352,6.31249322 C1.65625078,6.11718049 1.65625078,5.79686761 1.85156352,5.60155487 L3.14844006,4.31249084 C3.34375279,4.1171781 3.65625317,4.1171781 3.8515659,4.31249084 L8.00000834,8.46093328 L12.1484508,4.31249084 C12.3437635,4.1171781 12.6562639,4.1171781 12.8515766,4.31249084 L14.1484532,5.60155487 C14.3437659,5.79686761 14.3437659,6.11718049 14.1484532,6.31249322 Z" id="chevron-down---FontAwesome" fill="#63ABFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

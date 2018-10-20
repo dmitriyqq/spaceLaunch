@@ -1,6 +1,10 @@
 div.scrollyears {
-  overflow: auto;
+  overflow: hidden;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 button.yearbutton {
@@ -13,10 +17,20 @@ button.yearbutton {
   color: #63ABFF;
 }
 
+button.yearbuttonSelected {
+  outline: none;
+  border-width: 0px;
+  border-top-width: 3px;
+  font-size: 18sp;
+  font-weight: 900;
+  background: transparent;
+  margin-left: 12px;
+  margin-right: 12px;
+  color: white;
+}
+
 button.yearbutton:focus {
   outline: none;
-  color: white;
-  border: 20px;
 }
 
 button.arrowbutton {
@@ -28,4 +42,14 @@ button.arrowbutton:focus {
   outline: none;
 }
 
-button.arrowbutton:disabled {}
+button.for-all-time-button {
+  position: absolute;
+  top: 10px;
+  left: 5%;
+  color: #63ABFF;
+  font-size: 18sp;
+  font-weight: 800;
+  background: transparent;
+  outline: none;
+  border-width: 0px;
+}

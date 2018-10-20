@@ -1,5 +1,21 @@
+<div class="for-all-time-contaier">
+  <button class="for-all-time-button" (click)="onAllTimeClick()">
+    FOR ALL TIME
+  </button>
+</div>
 <div class="scrollyears">
-  <button id="backArrow" [disabled]="isFirstPage" class="arrowbutton" (click)="onBackClick()">СТРЕЛКА</button>
-  <button class="yearbutton" *ngFor="let year of displayedYears">{{year}}</button>
-  <button id="nextArrow" [disabled]="isLastPage" class="arrowbutton" (click)="onNextClick()">СТРЕЛКА</button>
+  <button id="backArrow" [disabled]="isFirstPage" class="arrowbutton col" (click)="onBackClick()">
+    <img src="../../assets/svg/LeftArrow.svg">
+  </button>
+  <ng-container *ngFor="let year of displayedYears">
+    <button *ngIf="selectedYear === year" class="yearbuttonSelected" (click)="onDateClick(year)">
+      {{year}}
+    </button>
+    <button *ngIf="selectedYear !== year" class="yearbutton" (click)="onDateClick(year)">
+      {{year}}
+    </button>
+  </ng-container>
+  <button id="nextArrow" [disabled]="isLastPage" class="arrowbutton col" (click)="onNextClick()">
+    <img src="../../assets/svg/Group 2.svg" />
+  </button>
 </div>
