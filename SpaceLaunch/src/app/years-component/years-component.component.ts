@@ -1,0 +1,73 @@
+import { Component, OnInit, NgModule } from '@angular/core';
+
+@Component({
+  selector: 'app-years-component',
+  templateUrl: './years-component.component.html',
+  styleUrls: ['./years-component.component.css']
+})
+
+export class YearsComponentComponent implements OnInit {
+
+  constructor() { }
+
+  private years: number[] = [];
+  private displayedYears: number[] = [];
+  private readonly pageSize: number = 10;
+  private currentPage: number;
+  private isFirstPage: boolean;
+  private isLastPage: boolean;
+  private startYear: number;
+  private endYear: number;
+
+  ngOnInit() {
+    this.currentPage = 1;
+    this.isFirstPage = true;
+    for (let i = 1961; i <= 2030; i++) {
+      this.years.push(i);
+      this.fillDisplayedYears();
+    }
+  }
+
+  private fillDisplayedYears() {
+    this.displayedYears = [];
+    this.startYear = this.currentPage * this.pageSize;
+    this.endYear = (this.currentPage + 1) * this.pageSize;
+    this.endYear = this.endYear >= this.years.length
+      ? this.years.length - 1
+      : this.endYear;
+
+    for (let i = this.startYear; i <= this.endYear; i++) {
+      this.displayedYears.push(this.years[i]);
+    }
+  }
+
+  private setButtonsEnabled() {
+    if (this.currentPage === 1) {
+      this.isFirstPage = true;
+    } else {
+      this.isFirstPage = false;
+    }
+    if ((this.currentPage + 1) * this.pageSize >= this.years.length) {
+      this.isLastPage = true;
+    } else {
+      this.isLastPage = false;
+    }
+  }
+
+  onBackClick() {
+    if (!this.isFirstPage) {
+      this.currentPage--;
+      this.fillDisplayedYears();
+      this.setButtonsEnabled();
+    }
+  }
+
+  onNextClick() {
+    if (!this.isLastPage) {
+      this.currentPage++;
+      this.fillDisplayedYears();
+      this.setButtonsEnabled();
+    }
+  }
+
+}

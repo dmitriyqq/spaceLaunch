@@ -1,0 +1,5 @@
+<div class="scrollyears">
+  <button id="backArrow" [disabled]="isFirstPage" class="arrowbutton" (click)="onBackClick()">СТРЕЛКА</button>
+  <button class="yearbutton" *ngFor="let year of displayedYears">{{year}}</button>
+  <button id="nextArrow" [disabled]="isLastPage" class="arrowbutton" (click)="onNextClick()">СТРЕЛКА</button>
+</div>
