@@ -7,18 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  currentFilter: string;
+  filters: string[];
   countries: string[];
   tab: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.countries = ['Россия', 'США', 'Китай'];
+    this.countries = ['Russia', 'USA', 'China'];
+    this.tab = true;
+    this.filters = ['All launches', 'Nearest launches', 'Successful launches', 'Unsuccessful launches'];
+  }
+
+  selectLaunches() {
     this.tab = true;
   }
 
-  tabSwitch() {
-    this.tab = !this.tab;
+  selectSpaceports() {
+    this.tab = false;
+  }
+
+  selectFilter(filter) {
+    this.currentFilter = filter;
   }
 
 }

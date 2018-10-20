@@ -1,38 +1,18 @@
 <table>
     <tr>
-      <td><button (click)="tabSwitch()"><h2>Запуски</h2></button></td>
-      <td><button (click)="tabSwitch()"><h2>Космодромы</h2></button></td>
+      <td><button class="tab" (click)="selectLaunches()">Launches</button></td>
+      <td><button class="tab" (click)="selectSpaceports()">Spaceports</button></td>
     </tr>
   </table>
 
 <div *ngIf="tab; then thenBlock else elseBlock"></div>   
     <ng-template #thenBlock>
-        <!-- <ul>
-            <li>
-              <h2><a href="">Все запуски</a></h2>
-            </li>
-            <li>
-              <h2><a href="">Ближайшие запуски</a></h2>
-            </li>
-            <li>
-              <h2><a href="">Удачные запуски</a></h2>
-            </li>
-            <li>
-              <h2><a href="">Неудачные запуски</a></h2>
-            </li>
-        </ul>  -->
-        <h2><a href="">Все запуски</a></h2>
-        <h2><a href="">Ближайшие запуски</a></h2>
-        <h2><a href="">Удачные запуски</a></h2>
-        <h2><a href="">Неудачные запуски</a></h2>
+        <div *ngFor="let filter of filters">
+          <button class="filter" (click)="selectFilter(filter)">{{filter}}</button>
+        </div>
     </ng-template>  
     <ng-template #elseBlock>
-        <h2><a href="">Все космодромы</a></h2>
-        <!-- <ul>
-            <li>
-              <h2><a href="">Все космодромы</a></h2>
-            </li>
-        </ul>  -->
+        
     </ng-template>
         <select>
           <option *ngFor="let country of countries"><a target="_blank" rel="noopener" href="">{{country}}</a></option>
