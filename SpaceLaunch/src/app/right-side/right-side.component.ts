@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
+import { RocketLaunch } from '../services/entity/rocket-launch';
 
 @Component({
   selector: 'app-right-side',
@@ -13,6 +14,7 @@ export class RightSideComponent implements OnInit, OnChanges {
 
   @Input() filterType: number;
   @Input() year: number;
+  @Input() rocketLaunchesInput: RocketLaunch[];
 
   public launchId: number = null;
   constructor() { }
@@ -30,10 +32,12 @@ export class RightSideComponent implements OnInit, OnChanges {
 
   backToList() {
     this.launchId = null;
+    this.rocketLaunchesInput = null;
   }
 
   closeList() {
     this.year = null;
     this.openList = false;
+    this.rocketLaunchesInput = null;
   }
 }

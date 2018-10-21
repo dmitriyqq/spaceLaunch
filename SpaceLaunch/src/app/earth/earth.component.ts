@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import { Globe } from './globe';
 import { RocketLaunchServiceService } from '../services/rocket-launch-service.service';
 import { RocketLaunch } from '../services/entity/rocket-launch';
@@ -10,42 +10,61 @@ import { DataPoint } from '../services/entity/DataPoint';
   templateUrl: './earth.component.html',
   styleUrls: ['./earth.component.css']
 })
-export class EarthComponent implements OnInit {
+export class EarthComponent implements OnChanges {
   globe: Globe;
   width: number;
   height: number;
   placeholder: HTMLElement;
- @Output() onSelectLocation = new EventEmitter<RocketLaunch[]>();
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onSelectLocation = new EventEmitter<RocketLaunch[]>();
+
+  @Input() year: number;
+  @Input() filter: number;
 
   constructor(private rocketLaunchService: RocketLaunchServiceService) {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
   }
 
-  async ngOnInit() {
+  async ngOnChanges() {
     this.placeholder = document.getElementById('placeholder');
     this.globe = new Globe(this.width, this.height, this.placeholder, (data: DataPoint) => {
       this.onSelectLocation.emit(data.launches);
     });
     this.globe.init();
+    this.globe.clean();
 
-    let year = 2018;
     let data;
-    let rocketLaunchs: RocketLaunch[] = [];
     let offset = 0;
-    if (year != null) {
-      do {
-        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
-          year + '-01-01', year + '-12-29', offset);
-        rocketLaunchs = rocketLaunchs.concat(data.launches);
-        offset += data.count;
-      } while (data.count === 100);
-    } else {
+    let rocketLaunchs = [];
+    if (this.filter === 0) {
       do {
         data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100, null, null, offset);
         rocketLaunchs = rocketLaunchs.concat(data.launches);
         offset += data.count;
       } while (data.count === 100);
+    }
+    if (this.filter === 1) {
+      do {
+        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
+          `${new Date().getFullYear}-${new Date().getMonth}-${new Date().getDay()}`, null, offset);
+        rocketLaunchs = rocketLaunchs.concat(data.launches);
+        offset += data.count;
+      } while (data.count === 100);
+    }
+    if (this.year != null) {
+      do {
+        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
+          this.year + '-01-01', this.year + '-12-31', offset);
+        rocketLaunchs = rocketLaunchs.concat(data.launches);
+        offset += data.count;
+      } while (data.count === 100);
+    }
+    if (this.filter === 2) {
+      rocketLaunchs = rocketLaunchs.filter(el => el.status === 3);
+    }
+    if (this.filter === 3) {
+      rocketLaunchs = rocketLaunchs.filter(el => el.status === 4);
     }
 
     const dataPoints: DataPoint[] = [];
@@ -62,8 +81,8 @@ export class EarthComponent implements OnInit {
           if (Math.abs(point.lat - lat) < MIN_DELTA && Math.abs(point.lon - lon) < MIN_DELTA) {
             point.launches.push(launch);
             point.count++;
-            point.success+=success;
-            point.fail+=fail;
+            point.success += success;
+            point.fail += fail;
             return;
           }
         }

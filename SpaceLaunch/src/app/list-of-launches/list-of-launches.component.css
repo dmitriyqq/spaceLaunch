@@ -7,3 +7,9 @@
     width: 320px;
     opacity: 0.7;
 }  
+
+.list-of-loading {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+}

@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import * as OrbitControls from 'three-orbitcontrols';
-import {Point} from './point.js'
+import { Point } from './point.js'
 
-import {CONSTANTS, RADIUS} from './Constants';
+import { CONSTANTS, RADIUS } from './Constants';
 
 export class Globe {
     constructor(width, height, container, onselect) {
@@ -70,7 +70,7 @@ export class Globe {
 
     animate() {
         this.controls.update();
-        for(let point of this.points){
+        for (let point of this.points) {
             point.update(this.camera, this.width, this.height);
         }
         this.point.position.copy(this.camera.position);
@@ -101,11 +101,13 @@ export class Globe {
     }
 
     clean() {
+
         for (const point of this.points) {
+            console.log('disposing', point);
             point.dispose(this.scene);
         }
 
-        this.points = [];
+        //this.points = [];
     }
 
     addPoints(data) {

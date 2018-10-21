@@ -5,7 +5,8 @@
     </ng-template>
 
     <ng-template [ngIf]="!launchId">
-      <app-list-of-launches [filterType]="filterType" [year]="year" (onChangedLaunchId)="onChanged($event)"></app-list-of-launches>
+      <app-list-of-launches [rocketLaunchesInput]="rocketLaunchesInput" [filterType]="filterType" [year]="year"
+        (onChangedLaunchId)="onChanged($event)"></app-list-of-launches>
     </ng-template>
   </div>
   <div class="right-button">
