@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  currentFilter: string;
+  currentFilter: number;
   filters: string[];
   countries: string[];
   tab: boolean;
@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
     this.countries = ['Russia', 'USA', 'China'];
     this.tab = true;
     this.filters = ['All launches', 'Nearest launches', 'Successful launches', 'Unsuccessful launches'];
+
   }
 
   selectLaunches() {
@@ -29,11 +30,14 @@ export class MenuComponent implements OnInit {
   }
 
   selectFilter(filter) {
-    this.currentFilter = filter;
+    this.currentFilter = this.filters.indexOf(filter);
   }
 
 }
 
-enum FileAccess {
-
+enum Filters {
+  All = 0,
+  Nearest = 1,
+  Successful = 2,
+  Unsuccessful = 3
 }

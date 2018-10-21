@@ -1,10 +1,3 @@
-<table>
-    <tr>
-      <td><button class="tab" (click)="selectLaunches()">Launches</button></td>
-      <td><button class="tab" (click)="selectSpaceports()">Spaceports</button></td>
-    </tr>
-  </table>
-
 <div *ngIf="tab; then thenBlock else elseBlock"></div>   
     <ng-template #thenBlock>
         <div *ngFor="let filter of filters">
@@ -14,7 +7,9 @@
     <ng-template #elseBlock>
         
     </ng-template>
-<nav id="primary_nav_wrap">
+
+<app-list-of-countries [countries]="countries"></app-list-of-countries>
+<!-- <nav id="primary_nav_wrap">
 <ul>
   <li><a href="#">Country</a>
     <ul>
@@ -22,4 +17,4 @@
     </ul>
   </li>
 </ul>
-</nav>
+</nav> -->

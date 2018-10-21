@@ -1,0 +1,11 @@
+<div *ngIf="open; then thenBlock else elseBlock"></div>   
+<ng-template #thenBlock>
+    <div *ngFor="let country of countries">
+        <input type="checkbox" id="scales" checked />
+        <label for="scales">{{country}}</label>
+    </div>
+</ng-template>  
+
+<ng-template #elseBlock>
+
+</ng-template>  
