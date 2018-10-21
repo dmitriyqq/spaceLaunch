@@ -9,6 +9,8 @@ import { LaunchComponent } from './launch/launch.component';
 import { YearsComponentComponent } from './years-component/years-component.component';
 import { LaunchDetailsComponent } from './launch-details/launch-details.component';
 import { RightSideComponent } from './right-side/right-side.component';
+import { EarthComponent } from './earth/earth.component';
+
 @NgModule({
       declarations: [
             AppComponent,
@@ -16,7 +18,8 @@ import { RightSideComponent } from './right-side/right-side.component';
             LaunchComponent,
             YearsComponentComponent,
             LaunchDetailsComponent,
-            RightSideComponent
+            RightSideComponent,
+            EarthComponent
       ],
       imports: [
             BrowserModule,

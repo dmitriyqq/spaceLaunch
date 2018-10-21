@@ -1,5 +1,6 @@
 .right-side {
     position: absolute;
+    top: 0;
     right: 3%;
     height: 90%;
     overflow:auto;
