@@ -9,4 +9,5 @@ export class RocketLaunch {
     public net: string;
     public missions: Mission[];
     public rocket: Rocket;
+    public vidURL: string;
 }
