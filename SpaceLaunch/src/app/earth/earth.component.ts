@@ -30,9 +30,9 @@ export class EarthComponent implements OnChanges, OnInit {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.placeholder = document.getElementById('placeholder');
-    this.globe.init(this.placeholder );
+    this.globe.init(this.placeholder);
   }
 
   async ngOnChanges() {
@@ -49,18 +49,19 @@ export class EarthComponent implements OnChanges, OnInit {
     if (this.filter === 1) {
       do {
         data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
-          `${new Date().getFullYear}-${new Date().getMonth}-${new Date().getDay()}`, null, offset);
+          '2018-10-21', null, offset);
         rocketLaunchs = rocketLaunchs.concat(data.launches);
         offset += data.count;
       } while (data.count === 100);
-    }
-    if (this.year != null) {
-      do {
-        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
-          this.year + '-01-01', this.year + '-12-31', offset);
-        rocketLaunchs = rocketLaunchs.concat(data.launches);
-        offset += data.count;
-      } while (data.count === 100);
+    } else {
+      if (this.year != null) {
+        do {
+          data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
+            this.year + '-01-01', this.year + '-12-31', offset);
+          rocketLaunchs = rocketLaunchs.concat(data.launches);
+          offset += data.count;
+        } while (data.count === 100);
+      }
     }
     if (this.filter === 2) {
       rocketLaunchs = rocketLaunchs.filter(el => el.status === 3);
@@ -78,8 +79,8 @@ export class EarthComponent implements OnChanges, OnInit {
         const lon = launch.location.pads[0].longitude;
         const success = launch.status == 3 ? 1 : 0;
         const fail = launch.status == 4 ? 1 : 0;
-        
-        
+
+
         for (let point of dataPoints) {
           if (Math.abs(point.lat - lat) < MIN_DELTA && Math.abs(point.lon - lon) < MIN_DELTA) {
             point.launches.push(launch);
@@ -89,7 +90,7 @@ export class EarthComponent implements OnChanges, OnInit {
             return;
           }
         }
-        
+
         dataPoints.push(<DataPoint>{
           count: 1,
           launches: [launch],

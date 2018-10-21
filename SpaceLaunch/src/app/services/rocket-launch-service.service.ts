@@ -36,17 +36,17 @@ export class RocketLaunchServiceService {
     if (rocketId) {
       params = params.append('rocketId', rocketId.toString());
     }
-    if (limit) {
-      params = params.append('limit', limit.toString());
-    }
     if (starDate) {
       params = params.append('startdate', starDate);
     }
     if (endDate) {
       params = params.append('enddate', endDate);
     }
-    if(offset) {
+    if (offset) {
       params = params.append('offset', offset.toString());
+    }
+    if (limit) {
+      params = params.append('limit', limit.toString());
     }
 
     return this.httpClient.get<RocketLaunchs>('https://launchlibrary.net/1.4/launch', { params }).toPromise();
