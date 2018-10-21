@@ -1,10 +1,12 @@
 <div class="rocket-launch">
   <div class="name-rocket-launch">{{rocketLaunch.name}}</div>
-  <div class="period-rocket-launch">Until launch <span style="font-weight: 800;">{{periodTime}}</span></div>
+  <ng-template [ngIf]="periodTime">
+    <div class="period-rocket-launch">Until launch <span style="font-weight: 800;">{{periodTime}}</span></div>
+  </ng-template>
   <div><span><img src="../../assets/svg/where.svg"></span>
     <span class="date-rocket-launch">{{rocketLaunch.net}}</span>
   </div>
   <div class="location-rocket-launch-div"><span><img src="../../assets/svg/location.svg"></span>
-    <span class="location-rocket-launch">Ariane Launch Area 3, Kourou</span>
+    <span class="location-rocket-launch">{{rocketLaunch.location.name}}</span>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-years-component',
@@ -7,6 +7,8 @@ import { Component, OnInit, NgModule } from '@angular/core';
 })
 
 export class YearsComponentComponent implements OnInit {
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onChangedYear = new EventEmitter<number>();
 
   constructor() { }
 
@@ -74,9 +76,11 @@ export class YearsComponentComponent implements OnInit {
 
   onDateClick(year) {
     this.selectedYear = year;
+    this.onChangedYear.emit(this.selectedYear);
   }
 
   onAllTimeClick() {
-    this.selectedYear = 0;
+    this.selectedYear = null;
+    this.onChangedYear.emit(this.selectedYear);
   }
 }

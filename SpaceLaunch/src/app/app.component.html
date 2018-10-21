@@ -1,2 +1,2 @@
-<app-years-component></app-years-component>
-<app-right-side></app-right-side>
+<app-years-component (onChangedYear)="onChangedYear($event)"></app-years-component>
+<app-right-side [year]="year" [openList]="openList"></app-right-side>

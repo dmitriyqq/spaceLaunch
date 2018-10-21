@@ -1,6 +1,20 @@
-<div class="right-side">
-  <app-list-of-launches></app-list-of-launches>
-</div>
-<div class="close-button">
-  <img src="../../assets/svg/close.svg">
-</div>
+<ng-template [ngIf]="openList">
+  <div class="right-side">
+    <ng-template [ngIf]="launchId">
+      <app-launch-details [launchId]="launchId"></app-launch-details>
+    </ng-template>
+
+    <ng-template [ngIf]="!launchId">
+      <app-list-of-launches [year]="year" (onChangedLaunchId)="onChanged($event)"></app-list-of-launches>
+    </ng-template>
+  </div>
+  <div class="right-button">
+    <ng-template [ngIf]="launchId">
+      <div (click)="backToList()"><img src="../../assets/svg/Back.svg"></div>
+    </ng-template>
+
+    <ng-template [ngIf]="!launchId">
+      <div (click)="closeList()"><img src="../../assets/svg/close.svg"></div>
+    </ng-template>
+  </div>
+</ng-template>

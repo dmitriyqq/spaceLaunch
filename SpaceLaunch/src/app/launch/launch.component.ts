@@ -9,23 +9,26 @@ import { RocketLaunch } from '../services/entity/rocket-launch';
 export class LaunchComponent implements OnInit {
 
   @Input() rocketLaunch: RocketLaunch;
-  public periodTime: string;
+  public periodTime: string = null;
   constructor() { }
 
   ngOnInit() {
     const nowDate = Date.now();
     const startDate = Date.parse(this.rocketLaunch.net);
-    const days = startDate - nowDate;
+    if (nowDate < startDate) {
 
-    let sec = Math.floor(days / 1000);
-    let min = Math.floor(sec / 60);
-    let hours = Math.floor(min / 60);
-    const day = Math.floor(hours / 24);
+      const days = startDate - nowDate;
 
-    sec = Math.floor(sec % 60);
-    min = Math.floor(min % 60);
-    hours = Math.floor(hours % 24);
-    this.periodTime = day + ' days ' + this.getTime(hours, min, sec);
+      let sec = Math.floor(days / 1000);
+      let min = Math.floor(sec / 60);
+      let hours = Math.floor(min / 60);
+      const day = Math.floor(hours / 24);
+
+      sec = Math.floor(sec % 60);
+      min = Math.floor(min % 60);
+      hours = Math.floor(hours % 24);
+      this.periodTime = day + ' days ' + this.getTime(hours, min, sec);
+    }
   }
 
 
@@ -42,7 +45,7 @@ export class LaunchComponent implements OnInit {
       time += '0' + min + ':';
     }
     if (sec > 9) {
-      time += sec + ':';
+      time += sec;
     } else {
       time += '0' + sec;
     }

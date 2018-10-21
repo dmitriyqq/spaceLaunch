@@ -9,7 +9,7 @@ import { RocketLaunchs } from './entity/rocket-launchs';
 export class RocketLaunchServiceService {
 
   constructor(private httpClient: HttpClient) { }
-
+  private url = 'https://launchlibrary.net/1.3/launch';
   public getRoketLaunces(mode?: string,
     id?: number,
     name?: string,
@@ -39,12 +39,12 @@ export class RocketLaunchServiceService {
       params = params.append('limit', limit.toString());
     }
     if (starDate) {
-      params = params.append('starDate', starDate);
+      params = params.append('startdate', starDate);
     }
     if (endDate) {
-      params = params.append('endDate', endDate);
+      params = params.append('enddate', endDate);
     }
 
-    return this.httpClient.get<RocketLaunchs>('https://launchlibrary.net/1.3/launch', { params }).toPromise();
+    return this.httpClient.get<RocketLaunchs>('https://launchlibrary.net/1.4/launch', { params }).toPromise();
   }
 }
