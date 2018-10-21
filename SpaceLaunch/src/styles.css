@@ -6,3 +6,68 @@
 body {
   background-color: black !important;
 }
+
+
+#container{
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  overflow: hidden;
+}
+
+canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background-color: #333;
+  overflow: hidden;
+}
+
+.label{
+  position: absolute;
+  user-select: none;
+  cursor: pointer;
+}
+
+
+.inner-text{
+  position: absolute;
+  background-color: rgba(10, 10, 10, 0.65);
+  padding: 7px 7px 7px 7px;
+  /* font-size: 14px; */
+  color: white;
+  white-space: nowrap;
+  right: -9px;
+  bottom: -9px;
+  z-index: 5;
+}
+
+.inner-icon{
+  position: absolute;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  left: -10px;
+  top: -10px;
+  z-index: 3;
+}
+
+.inner-icon-circle{
+  border-radius: 100%;
+  position: absolute;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  left: -10px;
+  top: -10px;
+  z-index: 3;
+  border: 3px #ffffff solid;
+  border-radius: 100%;
+}
