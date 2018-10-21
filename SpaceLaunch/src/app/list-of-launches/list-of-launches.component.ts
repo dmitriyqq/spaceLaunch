@@ -34,13 +34,29 @@ export class ListOfLaunchesComponent implements OnChanges {
         offset += data.count;
       } while (data.count === 100);
     } else {
-      do {
-        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100, null, null, offset);
-        this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
-        offset += data.count;
-      } while (data.count === 100);
+      if (this.filterType === 1) {
+        do {
+          data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
+            `${new Date().getFullYear}-${new Date().getMonth}-${new Date().getDay()}`, null, offset);
+          this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
+          offset += data.count;
+        } while (data.count === 100);
+      } else {
+        do {
+          data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100, null, null, offset);
+          this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
+          offset += data.count;
+        } while (data.count === 100);
+        if (this.filterType === 2) {
+          this.rocketLaunchs = this.rocketLaunchs.filter(el => el.status === 3);
+        } else {
+          if (this.filterType === 3) {
+            this.rocketLaunchs = this.rocketLaunchs.filter(el => el.status === 4);
+          }
+        }
+      }
+
     }
-    this.rocketLaunchs = this.rocketLaunchs.sort();
   }
 
   change(id: number) {

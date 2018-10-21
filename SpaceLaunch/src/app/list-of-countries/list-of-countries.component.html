@@ -1,20 +1,20 @@
-<div *ngIf="open; then thenBlock else elseBlock"></div>   
+<div *ngIf="open; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock>
     <button class="countries expanded" (click)="openSwitch()">
         Countries
-        <img src="../../assets/svg/UpArrow.svg"/>
-      </button>
-    <label class="contain" *ngFor="let country of countries">
+        <img src="../../assets/svg/UpArrow.svg" />
+    </button>
+    <label (click)="selectCountry(country)" class="contain" *ngFor="let country of countries">
         <input class="country-marker" type="checkbox" id="scales" />
         <span class="country-name">{{country}}</span>
         <span class="checkmark"></span>
         <!-- <label class="country-name" for="scales">{{country}}</label> -->
     </label>
-</ng-template>  
+</ng-template>
 
 <ng-template #elseBlock>
     <button class="countries collapsed" (click)="openSwitch()">
-      Countries
-      <img src="../../assets/svg/DownArrow.svg"/>
+        Countries
+        <img src="../../assets/svg/DownArrow.svg" />
     </button>
-</ng-template>  
+</ng-template>

@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListOfCountriesComponent implements OnInit {
 
+
+
   @Input() countries: string[];
   open: boolean;
 
@@ -19,4 +21,7 @@ export class ListOfCountriesComponent implements OnInit {
     this.open = !this.open;
   }
 
+  public selectCountry(country: string) {
+
+  }
 }

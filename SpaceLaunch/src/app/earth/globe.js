@@ -55,7 +55,7 @@ export class Globe {
         const geometry = new THREE.SphereGeometry(RADIUS, 64, 64);
         this.sphere = new THREE.Mesh(geometry, this.material);
 
-        this.camera.position.z = 3.4;
+        this.camera.position.z = 4;
 
         this.scene.add(this.sphere);
         this.point.target = this.sphere;
@@ -69,11 +69,11 @@ export class Globe {
         this.draw = this.draw.bind(this);
         this.animate();
 
-        this.container.onclick = () => {
-            const lat = Math.random() * 360;
-            const lon = Math.random() * 360;
-            this.addPoint(lat, lon);
-        }
+        // this.container.onclick = () => {
+        //     const lat = Math.random() * 360;
+        //     const lon = Math.random() * 360;
+        //     this.addPoint(lat, lon);
+        // }
     }
 
     animate() {
@@ -115,8 +115,9 @@ export class Globe {
         this.points = [];
     }
 
-    addPoint(lat, lon) {
-        const point = new Point(lat, lon, 'sample text', 0, this.container, (data) => {
+    addPoint(lat, lon, text, type) {
+        console.log(lat, lon);
+        const point = new Point(+lat, +lon, text, type, this.container, (data) => {
             console.log(data);
         });
         this.points.push(point);
