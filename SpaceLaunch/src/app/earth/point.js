@@ -5,11 +5,12 @@ import { CONSTANTS, RADIUS } from './Constants';
 const POINT_RADIUS = 0.01;
 
 export class Point{
-    constructor(lat, lon, text, type, container, onselect) {
+    constructor(lat, lon, data, container, onselect) {
         this.lat = lat
         this.lon = lon;
+        this.data = data;
         this.container = container;
-        this.label = new Label(text, type, container, onselect, {lat, lon});
+        this.label = new Label(data, container, onselect, {lat, lon});
         this.onselect = onselect;
     }
 

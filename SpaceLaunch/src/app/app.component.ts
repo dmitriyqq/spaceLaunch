@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RocketLaunch } from './services/entity/rocket-launch';
 
 @Component({
   selector: 'app-root',
@@ -19,5 +20,9 @@ export class AppComponent implements OnInit {
 
   onChangedFilterType(filter: number) {
     this.filter = filter;
+  }
+
+  onselect(rocketLaunches: RocketLaunch[]){
+    console.log(rocketLaunches);
   }
 }
