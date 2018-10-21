@@ -1,4 +1,4 @@
-<app-earth></app-earth>
+<app-earth (onSelectLocation)="onselect($event)"></app-earth>
 <app-years-component (onChangedYear)="onChangedYear($event)"></app-years-component>
 <app-right-side [filterType]="filter" [year]="year" [openList]="openList"></app-right-side>
 <app-menu (onChangedFilterType)="onChangedFilterType($event)"></app-menu>

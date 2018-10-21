@@ -1,10 +1,8 @@
 import * as THREE from 'three';
 import * as OrbitControls from 'three-orbitcontrols';
-import {Point} from './point'
+import {Point} from './point.js'
 
 import {CONSTANTS, RADIUS} from './Constants';
-
-
 
 export class Globe {
     constructor(width, height, container, onselect) {
@@ -68,12 +66,6 @@ export class Globe {
         this.animate = this.animate.bind(this);
         this.draw = this.draw.bind(this);
         this.animate();
-
-        // this.container.onclick = () => {
-        //     const lat = Math.random() * 360;
-        //     const lon = Math.random() * 360;
-        //     this.addPoint(lat, lon);
-        // }
     }
 
     animate() {
@@ -115,10 +107,9 @@ export class Globe {
         this.points = [];
     }
 
-    addPoint(lat, lon, text, type) {
-        console.log(lat, lon);
-        const point = new Point(+lat, +lon, text, type, this.container, (data) => {
-            console.log(data);
+    addPoints(data) {
+        const point = new Point(+data.lat, data.lon, data, this.container, (data) => {
+            this.onselect(data);
         });
         this.points.push(point);
     }
