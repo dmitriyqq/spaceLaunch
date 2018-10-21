@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LaunchComponent } from './launch/launch.component';
 import { YearsComponentComponent } from './years-component/years-component.component';
 import { ListOfCountriesComponent } from './list-of-countries/list-of-countries.component';
+import { LaunchDetailsComponent } from './launch-details/launch-details.component';
+import { RightSideComponent } from './right-side/right-side.component';
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -16,7 +19,9 @@ import { ListOfCountriesComponent } from './list-of-countries/list-of-countries.
       LaunchComponent,
       ListOfLaunchesComponent,
       YearsComponentComponent,
-      ListOfCountriesComponent
+      ListOfCountriesComponent,
+      LaunchDetailsComponent,
+      RightSideComponent
    ],
    imports: [
       BrowserModule,

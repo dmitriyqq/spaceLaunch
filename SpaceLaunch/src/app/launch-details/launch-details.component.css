@@ -1,0 +1,107 @@
+.rocket-launch {
+  text-align: left;
+  width: 320px;
+}
+
+.name-rocket-launch {
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  font-weight: 800;
+  height: 48px;
+  margin-top: 24px;
+}
+
+.period-rocket-launch {
+  line-height: 16px;
+  color: #ffffff;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.date-rocket-launch {
+  margin-left: 12px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.75)
+}
+
+.location-rocket-launch-div {
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+.location-rocket-launch {
+  margin-left: 12px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.75)
+}
+
+.missions-launch-details {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 16px;
+  letter-spacing: 0;
+}
+
+.missions-title {
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+.mission-name-ul-launch-details {
+  list-style-position: inside;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.mission-name-launch-details {
+  font-weight: 800;
+  line-height: 26px;
+}
+
+.mission-description-launch-details {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.hr-launch-details {
+  color: rgba(255, 255, 255, 0.75)
+}
+
+.rocket-launch-details {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  line-height: 26px;
+  letter-spacing: 0;
+  font-weight: 800;
+}
+
+.rocket-title-launch-details {
+  margin-bottom: 0px;
+}
+
+.agencies-launch-details {
+  margin-top: 16px;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: white;
+}
+
+.agencies-title-launch-details {
+  margin-bottom: 0px;
+}
+
+.agency-ul-launch-details {
+  list-style-position: inside;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.agency-name-launch-details {
+  font-weight: 800;
+  line-height: 26px;
+}
