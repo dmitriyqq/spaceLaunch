@@ -94,10 +94,9 @@ export class Label {
 
     dispose() {
         console.log('disposing', this.data.text);
-        document.removeEventListener('click');
-        document.remove(this.text);
-        document.remove(this.icon);
-        document.remove(this.element);
-
+        document.removeEventListener('click', this.element);
+        this.container.removeChild(this.element);
+        this.element.removeChild(this.text);
+        this.element.removeChild(this.icon);
     }
 }

@@ -10,7 +10,7 @@ import { DataPoint } from '../services/entity/DataPoint';
   templateUrl: './earth.component.html',
   styleUrls: ['./earth.component.css']
 })
-export class EarthComponent implements OnChanges {
+export class EarthComponent implements OnChanges, OnInit {
   globe: Globe;
   width: number;
   height: number;
@@ -20,20 +20,22 @@ export class EarthComponent implements OnChanges {
 
   @Input() year: number;
   @Input() filter: number;
-
+  ok: boolean = false;
   constructor(private rocketLaunchService: RocketLaunchServiceService) {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
+    this.globe = new Globe(this.width, this.height, (data: DataPoint) => {
+      this.onSelectLocation.emit(data.launches);
+    });
+
+  }
+
+  ngOnInit(){
+    this.placeholder = document.getElementById('placeholder');
+    this.globe.init(this.placeholder );
   }
 
   async ngOnChanges() {
-    this.placeholder = document.getElementById('placeholder');
-    this.globe = new Globe(this.width, this.height, this.placeholder, (data: DataPoint) => {
-      this.onSelectLocation.emit(data.launches);
-    });
-    this.globe.init();
-    this.globe.clean();
-
     let data;
     let offset = 0;
     let rocketLaunchs = [];
@@ -67,6 +69,7 @@ export class EarthComponent implements OnChanges {
       rocketLaunchs = rocketLaunchs.filter(el => el.status === 4);
     }
 
+    this.globe.clean();
     const dataPoints: DataPoint[] = [];
     const MIN_DELTA = 1.0;
     rocketLaunchs.map(launch => {
@@ -75,8 +78,8 @@ export class EarthComponent implements OnChanges {
         const lon = launch.location.pads[0].longitude;
         const success = launch.status == 3 ? 1 : 0;
         const fail = launch.status == 4 ? 1 : 0;
-
-
+        
+        
         for (let point of dataPoints) {
           if (Math.abs(point.lat - lat) < MIN_DELTA && Math.abs(point.lon - lon) < MIN_DELTA) {
             point.launches.push(launch);
@@ -86,7 +89,7 @@ export class EarthComponent implements OnChanges {
             return;
           }
         }
-
+        
         dataPoints.push(<DataPoint>{
           count: 1,
           launches: [launch],

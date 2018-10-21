@@ -5,19 +5,18 @@ import { Point } from './point.js'
 import { CONSTANTS, RADIUS } from './Constants';
 
 export class Globe {
-    constructor(width, height, container, onselect) {
+    constructor(width, height, onselect) {
         this.width = width;
         this.height = height;
-        this.container = container;
         this.onselect = onselect;
         this.points = [];
     }
-
+    
     async setupGlobeMaterial() {
         const spec = await this.loadTexture('../../assets/img/earth.jpg');
         const bump = await this.loadTexture('../../assets/img/earth.jpg');
         const texture = await this.loadTexture('../../assets/img/earth.jpg');
-
+        
         this.material = new THREE.MeshPhongMaterial({
             map: texture,
             bumpMap: bump,
@@ -25,17 +24,18 @@ export class Globe {
             bumpScale: 0.05,
         });
     }
-
-    async init() {
+    
+    async init(container) {
+        this.container = container;
         await this.setupGlobeMaterial();
         const bg = await this.loadTexture('../../assets/img/bg.png');
-
+        
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.setSize(this.width, this.height);
         this.container.appendChild(this.renderer.domElement);
-
+        
         this.scene = new THREE.Scene();
         this.scene.background = bg;
         this.camera = new THREE.PerspectiveCamera(75, this.width / this.height, 0.1, 1000);
@@ -107,7 +107,7 @@ export class Globe {
             point.dispose(this.scene);
         }
 
-        //this.points = [];
+        this.points = [];
     }
 
     addPoints(data) {
