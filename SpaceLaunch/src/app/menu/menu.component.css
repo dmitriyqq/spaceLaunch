@@ -3,8 +3,6 @@
     font-size: 18px;
     font-weight: 800;
     background: transparent;
-    margin-left: 12px;
-    margin-right: 12px;
     margin-bottom: 30px;
     color: #63ABFF;
   }
@@ -116,6 +114,6 @@
 
 .menu {
   position: absolute;
-  left: 5%;
-  top: 20%;
+  left: 6%;
+  top: 64px;
 }
