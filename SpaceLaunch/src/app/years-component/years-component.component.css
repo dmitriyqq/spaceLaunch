@@ -21,11 +21,6 @@ button.yearbutton {
   color: #63ABFF;
 }
 
-button.yearbutton:hover {
-  opacity: 0.5;
-  cursor: pointer;
-}
-
 button.yearbuttonSelected {
   outline: none;
   padding: 0;
@@ -53,11 +48,6 @@ button.arrowbutton:focus {
   outline: none;
 }
 
-button.arrowbutton:hover {
-  opacity: 0.5;
-  cursor: pointer;
-}
-
 button.for-all-time-button {
   position: absolute;
   bottom: 10px;
@@ -68,4 +58,12 @@ button.for-all-time-button {
   background: transparent;
   outline: none;
   border-width: 0px;
+  z-index: 10;
+}
+
+button.yearbutton:hover,
+button.for-all-time-button:hover,
+button.arrowbutton:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
