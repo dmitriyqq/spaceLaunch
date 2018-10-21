@@ -7,16 +7,14 @@ import { RocketLaunch } from './services/entity/rocket-launch';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public openList: boolean;
+  public openList: boolean = true;
   public year: number;
   public filter: number;
 
 
   ngOnInit(): void {
-    this.openList = true;
   }
   onChangedYear(id: number) {
-    this.openList = true;
     this.year = id;
   }
 

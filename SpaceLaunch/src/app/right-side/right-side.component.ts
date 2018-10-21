@@ -5,12 +5,12 @@ import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angu
   templateUrl: './right-side.component.html',
   styleUrls: ['./right-side.component.css']
 })
-export class RightSideComponent implements OnInit {
+export class RightSideComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onChangedLaunchId = new EventEmitter<number>();
-  @Input() openList: boolean;
-  @Input() countries: string[];
+  @Input() public openList: boolean;
+
   @Input() filterType: number;
   @Input() year: number;
 
@@ -18,6 +18,10 @@ export class RightSideComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(): void {
+    const sda = this.year;
   }
 
   onChanged(id: number) {
@@ -29,6 +33,7 @@ export class RightSideComponent implements OnInit {
   }
 
   closeList() {
+    this.year = null;
     this.openList = false;
   }
 }

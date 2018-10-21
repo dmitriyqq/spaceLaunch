@@ -26,7 +26,7 @@ export class YearsComponentComponent implements OnInit {
     this.currentPage = 5;
     this.selectedYear = 2018;
     this.onChangedYear.emit(this.selectedYear);
-    this.isFirstPage = true;
+    this.isFirstPage = false;
     for (let i = 1961; i <= 2031; i++) {
       this.years.push(i);
       this.fillDisplayedYears();
@@ -77,11 +77,11 @@ export class YearsComponentComponent implements OnInit {
 
   onDateClick(year) {
     this.selectedYear = year;
-    this.onChangedYear.emit(this.selectedYear);
+    this.onChangedYear.emit(year);
   }
 
   onAllTimeClick() {
     this.selectedYear = null;
-    this.onChangedYear.emit(this.selectedYear);
+    this.onChangedYear.emit(null);
   }
 }

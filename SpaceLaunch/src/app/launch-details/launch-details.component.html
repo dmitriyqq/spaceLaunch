@@ -10,38 +10,44 @@
     <div class="location-rocket-launch-div"><span><img src="../../assets/svg/location.svg"></span>
       <span class="location-rocket-launch">{{rocketLaunch.location.name}}</span>
     </div>
-    <div class="missions-launch-details">
-      <p class="missions-title">Missions:</p>
-      <ng-container *ngFor="let mission of rocketLaunch.missions">
-        <ul class="mission-name-ul-launch-details">
-          <li class="mission-name-launch-details">
-            {{mission.name}}
+    <ng-template [ngIf]="rocketLaunch.missions.length != 0">
+      <div class="missions-launch-details">
+        <p class="missions-title">Missions:</p>
+        <ng-container *ngFor="let mission of rocketLaunch.missions">
+          <ul class="mission-name-ul-launch-details">
+            <li class="mission-name-launch-details">
+              {{mission.name}}
+            </li>
+          </ul>
+          <p class="mission-description-launch-details">
+            {{mission.description}}
+          </p>
+        </ng-container>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="rocketLaunch.rocket">
+      <hr class="hr-launch-details">
+      <div class="rocket-launch-details">
+        <p class="rocket-title-launch-details">
+          Rocket:
+        </p>
+        <p class="rocket-name-launch-details">
+          {{rocketLaunch.rocket.name}}
+        </p>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="rocketLaunch.agencies != undefined">
+      <hr class="hr-launch-details">
+      <div class="agencies-launch-details">
+        <p class="agencies-title-launch-details">
+          Agencies:
+        </p>
+        <ul class="agency-ul-launch-details">
+          <li *ngFor="let agency of rocketLaunch.missions[0].agencies" class="agency-name-launch-details">
+            {{agency.name}}
           </li>
         </ul>
-        <p class="mission-description-launch-details">
-          {{mission.description}}
-        </p>
-      </ng-container>
-    </div>
-    <hr class="hr-launch-details">
-    <div class="rocket-launch-details">
-      <p class="rocket-title-launch-details">
-        Rocket:
-      </p>
-      <p class="rocket-name-launch-details">
-        {{rocketLaunch.rocket.name}}
-      </p>
-    </div>
-    <hr class="hr-launch-details">
-    <div class="agencies-launch-details">
-      <p class="agencies-title-launch-details">
-        Agencies:
-      </p>
-      <ul class="agency-ul-launch-details">
-        <li *ngFor="let agency of rocketLaunch.missions[0].agencies" class="agency-name-launch-details">
-          {{agency.name}}
-        </li>
-      </ul>
-    </div>
+      </div>
+    </ng-template>
   </div>
 </ng-template>

@@ -1,8 +1,8 @@
 .right-side {
     position: absolute;
-    top: 0;
-    right: 4%;
-    height: 90%;
+    top: 40px;
+    bottom: 128px;
+    right: 6%;
     overflow:auto;
 }
 
@@ -13,6 +13,6 @@
 
 .right-button {
     position: absolute;
+    top: 64px;
     right: 2%;
-    top: 2%;
 }
