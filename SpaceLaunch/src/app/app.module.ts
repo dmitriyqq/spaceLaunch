@@ -14,25 +14,25 @@ import { RightSideComponent } from './right-side/right-side.component';
 import { EarthComponent } from './earth/earth.component';
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      MenuComponent,
-      LaunchComponent,
-      ListOfLaunchesComponent,
-      YearsComponentComponent,
-      ListOfCountriesComponent,
-      LaunchDetailsComponent,
-      RightSideComponent,
-      EarthComponent
-   ],
-   imports: [
-      BrowserModule,
-      HttpModule,
-      HttpClientModule
-   ],
-   providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+    declarations: [
+        AppComponent,
+        MenuComponent,
+        LaunchComponent,
+        ListOfLaunchesComponent,
+        YearsComponentComponent,
+        ListOfCountriesComponent,
+        LaunchDetailsComponent,
+        RightSideComponent,
+        EarthComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule { }
