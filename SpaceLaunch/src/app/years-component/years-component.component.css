@@ -9,6 +9,7 @@ div.scrollyears {
 
 button.yearbutton {
   border: 0;
+  padding: 0;
   font-size: 18sp;
   font-weight: 900;
   background: transparent;
@@ -17,8 +18,14 @@ button.yearbutton {
   color: #63ABFF;
 }
 
+button.yearbutton:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 button.yearbuttonSelected {
   outline: none;
+  padding: 0;
   border-width: 0px;
   border-top-width: 3px;
   font-size: 18sp;

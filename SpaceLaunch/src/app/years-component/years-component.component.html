@@ -4,7 +4,7 @@
   </button>
 </div>
 <div class="scrollyears">
-  <button id="backArrow" [disabled]="isFirstPage" class="arrowbutton col" (click)="onBackClick()">
+  <button id="backArrow" [disabled]="isFirstPage" class="arrowbutton" (click)="onBackClick()">
     <img src="../../assets/svg/LeftArrow.svg">
   </button>
   <ng-container *ngFor="let year of displayedYears">
@@ -15,7 +15,7 @@
       {{year}}
     </button>
   </ng-container>
-  <button id="nextArrow" [disabled]="isLastPage" class="arrowbutton col" (click)="onNextClick()">
+  <button id="nextArrow" [disabled]="isLastPage" class="arrowbutton" (click)="onNextClick()">
     <img src="../../assets/svg/Group 2.svg" />
   </button>
 </div>
