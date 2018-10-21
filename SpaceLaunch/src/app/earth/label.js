@@ -5,10 +5,10 @@ const START_OPACITY = 0.1;
 const END_OPACITY = 0.9;
 const TEXT_PADDING = Math.PI / 7;
 
-import {CONSTANTS} from './Constants';
+import { CONSTANTS } from './Constants';
 
 function map(n, start1, stop1, start2, stop2) {
-    return ((n-start1)/(stop1-start1))*(stop2-start2)+start2;
+    return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
 };
 
 export class Label {
@@ -22,15 +22,15 @@ export class Label {
         this.element.setAttribute('class', 'label')
         this.text = document.createElement('div');
         this.text.setAttribute('class', 'inner-text');
-        this.text.innerHTML = this.data.text + (this.data.count > 1 ? ` +${this.data.count-1}` : '');
+        this.text.innerHTML = this.data.text + (this.data.count > 1 ? ` +${this.data.count - 1}` : '');
         this.element.appendChild(this.getSpaceportIcon());
 
         console.log(this.data.fail, this.data.success);
-        if(this.data.fail != 0 && this.data.success != 0){
+        if (this.data.fail != 0 && this.data.success != 0) {
             this.icon.style.borderColor = 'orange';
-        }else if(this.data.fail != 0){
+        } else if (this.data.fail != 0) {
             this.icon.style.borderColor = 'red';
-        } else if(this.data.success != 0){
+        } else if (this.data.success != 0) {
             this.icon.style.borderColor = 'green';
         }
 
@@ -55,7 +55,7 @@ export class Label {
         const opacity = map(Math.acos(cost), 2, 2.5, START_OPACITY, END_OPACITY);
         const fontSize = Math.round(map(Math.acos(cost), 2, 2.5, START_FONT, END_FONT)) + 'px';
         const offset = this.element.offsetWidth / 2;
-        console.log(this.data.count);
+        // console.log(this.data.count);
         this.setRadius(map(this.data.count, 0, 20, 10, 40));
         this.element.style.left = (posx - offset) + 'px';
         this.element.style.top = posy + 'px';
@@ -63,9 +63,9 @@ export class Label {
         // this.element.style.fontSize = fontSize;
     }
 
-    setRadius(r){
-        this.icon.style.width = r*2 + 'px';
-        this.icon.style.height = r*2 + 'px';
+    setRadius(r) {
+        this.icon.style.width = r * 2 + 'px';
+        this.icon.style.height = r * 2 + 'px';
         this.icon.style.left = -r + 'px';
         this.icon.style.top = -r + 'px';
     }
@@ -84,18 +84,20 @@ export class Label {
         return this.icon;
     }
 
-    hide(){
+    hide() {
         this.element.style.display = 'none';
     }
-    
-    show(){
+
+    show() {
         this.element.style.display = 'block';
     }
 
     dispose() {
-        this.container.removeChild(this.element);
-        this.element.removeEventListener('click');
-        this.element.removeChild(this.text);
-        this.element.removeChild(this.icon);
+        console.log('disposing', this.data.text);
+        document.removeEventListener('click');
+        document.remove(this.text);
+        document.remove(this.icon);
+        document.remove(this.element);
+
     }
 }

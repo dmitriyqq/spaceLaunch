@@ -1,3 +1,8 @@
-<div class="list-of-launches" *ngFor="let rocketLaunch of rocketLaunchs">
-  <app-launch [rocketLaunch]=rocketLaunch (click)="change(rocketLaunch.id)"></app-launch>
-</div>
+<ng-template [ngIf]="!loading">
+  <div class="list-of-launches" *ngFor="let rocketLaunch of rocketLaunchs">
+    <app-launch [rocketLaunch]=rocketLaunch (click)="change(rocketLaunch.id)"></app-launch>
+  </div>
+</ng-template>
+<ng-template [ngIf]="loading">
+
+</ng-template>
