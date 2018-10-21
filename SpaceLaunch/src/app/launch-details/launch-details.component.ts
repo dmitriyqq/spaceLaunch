@@ -11,7 +11,7 @@ import { RocketLaunch } from '../services/entity/rocket-launch';
 export class LaunchDetailsComponent implements OnInit {
   @Input() launchId: number;
 
-  private rocketLaunch: RocketLaunch;
+  public rocketLaunch: RocketLaunch;
 
   constructor(private rocketLaunchService: RocketLaunchServiceService) {
   }
