@@ -17,7 +17,8 @@ export class RocketLaunchServiceService {
     rocketId?: number,
     limit?: number,
     starDate?: string,
-    endDate?: string): Promise<RocketLaunchs> {
+    endDate?: string,
+    offset?: number): Promise<RocketLaunchs> {
 
     let params = new HttpParams();
     if (mode) {
@@ -43,6 +44,9 @@ export class RocketLaunchServiceService {
     }
     if (endDate) {
       params = params.append('enddate', endDate);
+    }
+    if(offset) {
+      params = params.append('offset', offset.toString());
     }
 
     return this.httpClient.get<RocketLaunchs>('https://launchlibrary.net/1.4/launch', { params }).toPromise();

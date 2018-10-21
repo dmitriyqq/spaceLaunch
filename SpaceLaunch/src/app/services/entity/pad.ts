@@ -5,7 +5,7 @@ export class Pad {
     public id: number;
     public infoURL: string;
     public latitude: number;
-    public longitide: number;
+    public longitude: number;
     public mapURL: string;
     public name: string;
     public wikiURL: string;

@@ -1,4 +1,4 @@
-<ng-template [ngIf]="openList">
+<ng-template [ngIf]="openList || year">
   <div class="right-side">
     <ng-template [ngIf]="launchId">
       <app-launch-details [launchId]="launchId"></app-launch-details>
