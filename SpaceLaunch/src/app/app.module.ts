@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { LaunchComponent } from './launch/launch.component';
 import { YearsComponentComponent } from './years-component/years-component.component';
 import { LaunchDetailsComponent } from './launch-details/launch-details.component';
+import { RightSideComponent } from './right-side/right-side.component';
 @NgModule({
       declarations: [
             AppComponent,
             ListOfLaunchesComponent,
             LaunchComponent,
             YearsComponentComponent,
-            LaunchDetailsComponent
+            LaunchDetailsComponent,
+            RightSideComponent
       ],
       imports: [
             BrowserModule,

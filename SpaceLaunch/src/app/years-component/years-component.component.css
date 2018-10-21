@@ -1,4 +1,6 @@
 div.scrollyears {
+  position: absolute;
+  bottom: 10px;
   overflow: hidden;
   white-space: nowrap;
   display: flex;
