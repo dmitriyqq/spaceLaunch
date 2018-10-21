@@ -77,11 +77,11 @@ export class YearsComponentComponent implements OnInit {
 
   onDateClick(year) {
     this.selectedYear = year;
-    this.onChangedYear.emit(this.selectedYear);
+    this.onChangedYear.emit(year);
   }
 
   onAllTimeClick() {
     this.selectedYear = null;
-    this.onChangedYear.emit(this.selectedYear);
+    this.onChangedYear.emit(null);
   }
 }
