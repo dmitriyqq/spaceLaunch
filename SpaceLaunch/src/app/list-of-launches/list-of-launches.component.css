@@ -1,0 +1,9 @@
+.list-of-launches {
+    border-bottom: 2px solid white;
+    width: 320px;
+}   
+.list-of-launches:hover {
+    border-bottom: 2px solid white;
+    width: 320px;
+    opacity: 0.7;
+}  

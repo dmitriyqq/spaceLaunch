@@ -1,4 +1,6 @@
 div.scrollyears {
+  position: absolute;
+  bottom: 10px;
   overflow: hidden;
   white-space: nowrap;
   display: flex;
@@ -44,7 +46,7 @@ button.arrowbutton:focus {
 
 button.for-all-time-button {
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   left: 5%;
   color: #63ABFF;
   font-size: 18sp;

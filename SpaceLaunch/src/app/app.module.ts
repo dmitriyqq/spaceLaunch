@@ -7,12 +7,14 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LaunchComponent } from './launch/launch.component';
 import { YearsComponentComponent } from './years-component/years-component.component';
+import { RightSideComponent } from './right-side/right-side.component';
 @NgModule({
    declarations: [
       AppComponent,
       ListOfLaunchesComponent,
       LaunchComponent,
-      YearsComponentComponent
+      YearsComponentComponent,
+      RightSideComponent
    ],
    imports: [
       BrowserModule,
