@@ -1,0 +1,104 @@
+.countries {
+    border: 0;
+    font-size: 18px;
+    font-weight: 800;
+    background: transparent;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .countries:focus {
+    outline: none;
+    border: 20px;
+  }
+
+  .countries:hover {
+      opacity: 0.7;
+      cursor: pointer;
+  }
+  
+  .collapsed {
+    color: #63ABFF;
+  }
+
+  .collapsed:focus {
+      color: white;
+  }
+
+  .expanded {
+      color: white;
+  }
+
+  .expanded:focus {
+      color: #63ABFF;
+  }
+
+  .country-name {
+    color: #63ABFF;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .contain {
+    display: block;
+    justify-content: center;
+    position: relative;
+    margin-left: 24px;
+    padding-left: 24px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+    
+    .contain input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    }
+    
+    .checkmark {
+    position: absolute;
+    top: 9px;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    border: 2px solid #63abff;
+    background-color: transparent;
+    }
+    
+    /* / On mouse-over, add a grey background color /
+    / .contain:hover input ~ .checkmark {
+    background-color: #ccc;
+    } / */
+    
+    .contain input:checked ~ .checkmark {
+    background-color: #63abff;
+    }
+    
+    .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    }
+    
+    .contain input:checked ~ .checkmark:after {
+    display: none;
+    }
+    
+    .contain .checkmark:after {
+    left: 9px;
+    top: 5px; 
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    }
+    

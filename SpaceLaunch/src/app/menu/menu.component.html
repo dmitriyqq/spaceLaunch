@@ -1,0 +1,20 @@
+<div *ngIf="tab; then thenBlock else elseBlock"></div>   
+    <ng-template #thenBlock>
+        <div *ngFor="let filter of filters">
+          <button class="filter" (click)="selectFilter(filter)">{{filter}}</button>
+        </div>
+    </ng-template>  
+    <ng-template #elseBlock>
+        
+    </ng-template>
+
+<app-list-of-countries [countries]="countries"></app-list-of-countries>
+<!-- <nav id="primary_nav_wrap">
+<ul>
+  <li><a href="#">Country</a>
+    <ul>
+      <li><a *ngFor="let country of countries" href="#">{{country}}</a></li>
+    </ul>
+  </li>
+</ul>
+</nav> -->
