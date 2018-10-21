@@ -14,8 +14,7 @@ div.scrollyears {
 button.yearbutton {
   border: 0;
   padding: 0;
-  width: 35px;
-  font-size: 18sp;
+  font-size: 18px;
   font-weight: 900;
   background: transparent;
   margin-left: 12px;
@@ -26,10 +25,9 @@ button.yearbutton {
 button.yearbuttonSelected {
   outline: none;
   padding: 0;
-  width: 35px;
   border-width: 0px;
   border-top-width: 3px;
-  font-size: 18sp;
+  font-size: 18px;
   font-weight: 900;
   background: transparent;
   margin-left: 12px;
@@ -43,6 +41,8 @@ button.yearbutton:focus {
 
 button.arrowbutton {
   border: 0;
+  margin-left: 12px;
+  margin-right: 12px;
   background: transparent;
 }
 
