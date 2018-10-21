@@ -7,6 +7,7 @@
   <div class="location-rocket-launch-div"><span><img src="../../assets/svg/location.svg"></span>
     <span class="location-rocket-launch">{{rocketLaunch.location.name}}</span>
   </div>
+  <iframe src="{{rocketLaunch.vidURL}}}" frameborder="0" allowfullscreen></iframe>
   <div class="missions-launch-details">
     <p class="missions-title">Missions:</p>
     <ng-container *ngFor="let mission of rocketLaunch.missions">
