@@ -10,6 +10,7 @@ div.scrollyears {
 button.yearbutton {
   border: 0;
   padding: 0;
+  width: 35px;
   font-size: 18sp;
   font-weight: 900;
   background: transparent;
@@ -26,6 +27,7 @@ button.yearbutton:hover {
 button.yearbuttonSelected {
   outline: none;
   padding: 0;
+  width: 35px;
   border-width: 0px;
   border-top-width: 3px;
   font-size: 18sp;
@@ -47,6 +49,11 @@ button.arrowbutton {
 
 button.arrowbutton:focus {
   outline: none;
+}
+
+button.arrowbutton:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 button.for-all-time-button {
