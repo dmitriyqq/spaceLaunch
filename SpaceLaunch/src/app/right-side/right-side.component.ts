@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-right-side',
@@ -7,6 +7,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 })
 export class RightSideComponent implements OnInit {
 
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onChangedLaunchId = new EventEmitter<number>();
   @Input() openList: boolean;
   @Input() countries: string[];
   @Input() filterType: number;

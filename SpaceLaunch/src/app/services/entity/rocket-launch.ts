@@ -10,4 +10,5 @@ export class RocketLaunch {
     public missions: Mission[];
     public rocket: Rocket;
     public vidURL: string;
+    public status: number;
 }

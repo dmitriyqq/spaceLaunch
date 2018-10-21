@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   public openList: boolean;
   public year: number;
+  public filter: number;
 
 
   ngOnInit(): void {
@@ -16,5 +17,9 @@ export class AppComponent implements OnInit {
   onChangedYear(id: number) {
     this.openList = true;
     this.year = id;
+  }
+
+  onChangedFilterType(filter: number) {
+    this.filter = filter;
   }
 }

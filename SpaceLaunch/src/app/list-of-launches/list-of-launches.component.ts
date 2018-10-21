@@ -30,6 +30,7 @@ export class ListOfLaunchesComponent implements OnChanges {
 
   async ngOnChanges() {
     let data;
+    this.rocketLaunchs = [];
     if (this.year != null) {
       do {
         data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
@@ -37,13 +38,29 @@ export class ListOfLaunchesComponent implements OnChanges {
         this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
       } while (data.count === 100);
     } else {
-      do {
-        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100);
-        this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
-      } while (data.count === 100);
+      if (this.filterType === 1) {
+        do {
+          data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
+            '2018-10-21');
+          this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
+        } while (data.count === 100);
+      } else {
+        do {
+          data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100);
+          this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
+        } while (data.count === 100);
+        if (this.filterType === 2) {
+          this.rocketLaunchs = this.rocketLaunchs.filter(el => el.status === 3);
+        } else {
+          if (this.filterType === 3) {
+            this.rocketLaunchs = this.rocketLaunchs.filter(el => el.status === 4);
+          }
+        }
+      }
+
     }
-    this.rocketLaunchs = this.rocketLaunchs.sort();
   }
+
   change(id: number) {
     this.onChangedLaunchId.emit(id);
   }

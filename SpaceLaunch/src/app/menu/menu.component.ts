@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -7,30 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onChangedFilterType = new EventEmitter<number>();
   currentFilter: number;
   filters: string[];
   countries: string[];
   tab: boolean;
+  countrCodes: string[];
 
   constructor() { }
 
   ngOnInit() {
-    this.countries = ['Russia', 'USA', 'China', 'asd', 'qwe'];
+    this.countries = ['Russia', 'USA', 'China', 'Japan', 'South Korea'];
+    this.countrCodes = ['RUS', 'USA', 'CHN', 'JPN', 'KOR'];
     this.tab = true;
     this.filters = ['All launches', 'Nearest launches', 'Successful launches', 'Unsuccessful launches'];
 
   }
 
-  selectLaunches() {
-    this.tab = true;
-  }
-
-  selectSpaceports() {
-    this.tab = false;
-  }
-
   selectFilter(filter) {
     this.currentFilter = this.filters.indexOf(filter);
+    this.onChangedFilterType.emit(this.currentFilter);
   }
 
 }
