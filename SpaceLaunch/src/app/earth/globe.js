@@ -46,8 +46,8 @@ export class Globe {
 
 
         this.ambient = new THREE.AmbientLight(0xffffff, 0.1);
-        this.directional = new THREE.DirectionalLight(0xffffff, 0.3);
-        this.point = new THREE.PointLight(0xffffff, 0.7);
+        this.directional = new THREE.DirectionalLight(0xffffff, 0.26);
+        this.point = new THREE.PointLight(0xffffff, 0.8);
         // const helper = new THREE.DirectionalLightHelper(this.directional, 5);
 
         const geometry = new THREE.SphereGeometry(RADIUS, 64, 64);
@@ -74,6 +74,7 @@ export class Globe {
             point.update(this.camera, this.width, this.height);
         }
         this.point.position.copy(this.camera.position);
+        this.directional.position.copy(this.camera.position);
         this.draw();
         requestAnimationFrame(this.animate);
     }
