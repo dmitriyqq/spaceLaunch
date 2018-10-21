@@ -22,28 +22,27 @@ export class ListOfLaunchesComponent implements OnChanges {
 
   rocketLaunchs: RocketLaunch[] = [];
 
-
-
-  // ngOnInit() {
-
-  // }
-
   async ngOnChanges() {
     let data;
+    let offset = 0;
+    this.rocketLaunchs = [];
     if (this.year != null) {
       do {
         data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
-          this.year + '-01-01', this.year + '-12-29');
+          this.year + '-01-01', this.year + '-12-29', offset);
         this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
+        offset += data.count;
       } while (data.count === 100);
     } else {
       do {
-        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100);
+        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100, null, null, offset);
         this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
+        offset += data.count;
       } while (data.count === 100);
     }
     this.rocketLaunchs = this.rocketLaunchs.sort();
   }
+
   change(id: number) {
     this.onChangedLaunchId.emit(id);
   }
