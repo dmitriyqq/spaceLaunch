@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.countries = ['Russia', 'USA', 'China'];
+    this.countries = ['Russia', 'USA', 'China', 'asd', 'qwe'];
     this.tab = true;
     this.filters = ['All launches', 'Nearest launches', 'Successful launches', 'Unsuccessful launches'];
 

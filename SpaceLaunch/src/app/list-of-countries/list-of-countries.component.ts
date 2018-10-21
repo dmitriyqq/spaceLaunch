@@ -15,4 +15,8 @@ export class ListOfCountriesComponent implements OnInit {
   ngOnInit() {
   }
 
+  public openSwitch() {
+    this.open = !this.open;
+  }
+
 }
