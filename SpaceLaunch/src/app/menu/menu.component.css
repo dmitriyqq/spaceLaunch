@@ -113,5 +113,9 @@
 {
 	display:block
 }
-  
-  
+
+.menu {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+}

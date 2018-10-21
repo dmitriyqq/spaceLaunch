@@ -20,7 +20,7 @@ export class ListOfLaunchesComponent implements OnChanges {
 
   constructor(private rocketLaunchService: RocketLaunchServiceService) { }
 
-  rocketLaunchs: RocketLaunch[];
+  rocketLaunchs: RocketLaunch[] = [];
 
 
 
@@ -28,17 +28,21 @@ export class ListOfLaunchesComponent implements OnChanges {
 
   // }
 
-  ngOnChanges(): void {
+  async ngOnChanges() {
+    let data;
     if (this.year != null) {
-      this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, null,
-        this.year + '-01-01', this.year + '-12-29').then((data: RocketLaunchs) => {
-          this.rocketLaunchs = data.launches;
-        });
+      do {
+        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100,
+          this.year + '-01-01', this.year + '-12-29');
+        this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
+      } while (data.count === 100);
     } else {
-      this.rocketLaunchService.getRoketLaunces('verbose').then((data: RocketLaunchs) => {
-        this.rocketLaunchs = data.launches;
-      });
+      do {
+        data = await this.rocketLaunchService.getRoketLaunces('verbose', null, null, null, null, 100);
+        this.rocketLaunchs = this.rocketLaunchs.concat(data.launches);
+      } while (data.count === 100);
     }
+    this.rocketLaunchs = this.rocketLaunchs.sort();
   }
   change(id: number) {
     this.onChangedLaunchId.emit(id);
