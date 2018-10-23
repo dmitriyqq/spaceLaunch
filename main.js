@@ -438,9 +438,9 @@ class Globe {
     }
     
     async setupGlobeMaterial() {
-        const spec = await this.loadTexture('/assets/img/earth.jpg');
-        const bump = await this.loadTexture('/assets/img/earth.jpg');
-        const texture = await this.loadTexture('/assets/img/earth.jpg');
+        const spec = await this.loadTexture('./assets/img/earth.jpg');
+        const bump = await this.loadTexture('./assets/img/earth.jpg');
+        const texture = await this.loadTexture('./assets/img/earth.jpg');
         
         this.material = new three__WEBPACK_IMPORTED_MODULE_0__["MeshPhongMaterial"]({
             map: texture,
@@ -453,7 +453,7 @@ class Globe {
     async init(container) {
         this.container = container;
         await this.setupGlobeMaterial();
-        const bg = await this.loadTexture('../../assets/img/bg.png');
+        const bg = await this.loadTexture('./assets/img/bg.png');
         
         this.renderer = new three__WEBPACK_IMPORTED_MODULE_0__["WebGLRenderer"]({ antialias: true });
         this.renderer.shadowMap.enabled = true;
@@ -745,7 +745,7 @@ module.exports = ".rocket-launch {\r\n  text-align: left;\r\n  width: 320px;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template [ngIf]=\"rocketLaunch\">\r\n  <div class=\"rocket-launch\">\r\n    <div class=\"name-rocket-launch\">{{rocketLaunch.name}}</div>\r\n    <ng-template [ngIf]=\"periodTime\">\r\n      <div class=\"period-rocket-launch\">Until launch <span style=\"font-weight: 800;\">{{periodTime}}</span></div>\r\n    </ng-template>\r\n    <div><span><img src=\"/assets/svg/where.svg\"></span>\r\n      <span class=\"date-rocket-launch\">{{rocketLaunch.net}}</span>\r\n    </div>\r\n    <div class=\"location-rocket-launch-div\"><span><img src=\"/assets/svg/location.svg\"></span>\r\n      <span class=\"location-rocket-launch\">{{rocketLaunch.location.name}}</span>\r\n    </div>\r\n    <ng-template [ngIf]=\"rocketLaunch.missions.length != 0\">\r\n      <div class=\"missions-launch-details\">\r\n        <p class=\"missions-title\">Missions:</p>\r\n        <ng-container *ngFor=\"let mission of rocketLaunch.missions\">\r\n          <ul class=\"mission-name-ul-launch-details\">\r\n            <li class=\"mission-name-launch-details\">\r\n              {{mission.name}}\r\n            </li>\r\n          </ul>\r\n          <p class=\"mission-description-launch-details\">\r\n            {{mission.description}}\r\n          </p>\r\n        </ng-container>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template [ngIf]=\"rocketLaunch.rocket\">\r\n      <hr class=\"hr-launch-details\">\r\n      <div class=\"rocket-launch-details\">\r\n        <p class=\"rocket-title-launch-details\">\r\n          Rocket:\r\n        </p>\r\n        <p class=\"rocket-name-launch-details\">\r\n          {{rocketLaunch.rocket.name}}\r\n        </p>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template [ngIf]=\"rocketLaunch.agencies != undefined\">\r\n      <hr class=\"hr-launch-details\">\r\n      <div class=\"agencies-launch-details\">\r\n        <p class=\"agencies-title-launch-details\">\r\n          Agencies:\r\n        </p>\r\n        <ul class=\"agency-ul-launch-details\">\r\n          <li *ngFor=\"let agency of rocketLaunch.missions[0].agencies\" class=\"agency-name-launch-details\">\r\n            {{agency.name}}\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </ng-template>\r\n  </div>\r\n</ng-template>\r\n"
+module.exports = "<ng-template [ngIf]=\"rocketLaunch\">\r\n  <div class=\"rocket-launch\">\r\n    <div class=\"name-rocket-launch\">{{rocketLaunch.name}}</div>\r\n    <ng-template [ngIf]=\"periodTime\">\r\n      <div class=\"period-rocket-launch\">Until launch <span style=\"font-weight: 800;\">{{periodTime}}</span></div>\r\n    </ng-template>\r\n    <div><span><img src=\"./assets/svg/where.svg\"></span>\r\n      <span class=\"date-rocket-launch\">{{rocketLaunch.net}}</span>\r\n    </div>\r\n    <div class=\"location-rocket-launch-div\"><span><img src=\"./assets/svg/location.svg\"></span>\r\n      <span class=\"location-rocket-launch\">{{rocketLaunch.location.name}}</span>\r\n    </div>\r\n    <ng-template [ngIf]=\"rocketLaunch.missions.length != 0\">\r\n      <div class=\"missions-launch-details\">\r\n        <p class=\"missions-title\">Missions:</p>\r\n        <ng-container *ngFor=\"let mission of rocketLaunch.missions\">\r\n          <ul class=\"mission-name-ul-launch-details\">\r\n            <li class=\"mission-name-launch-details\">\r\n              {{mission.name}}\r\n            </li>\r\n          </ul>\r\n          <p class=\"mission-description-launch-details\">\r\n            {{mission.description}}\r\n          </p>\r\n        </ng-container>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template [ngIf]=\"rocketLaunch.rocket\">\r\n      <hr class=\"hr-launch-details\">\r\n      <div class=\"rocket-launch-details\">\r\n        <p class=\"rocket-title-launch-details\">\r\n          Rocket:\r\n        </p>\r\n        <p class=\"rocket-name-launch-details\">\r\n          {{rocketLaunch.rocket.name}}\r\n        </p>\r\n      </div>\r\n    </ng-template>\r\n    <ng-template [ngIf]=\"rocketLaunch.agencies != undefined\">\r\n      <hr class=\"hr-launch-details\">\r\n      <div class=\"agencies-launch-details\">\r\n        <p class=\"agencies-title-launch-details\">\r\n          Agencies:\r\n        </p>\r\n        <ul class=\"agency-ul-launch-details\">\r\n          <li *ngFor=\"let agency of rocketLaunch.missions[0].agencies\" class=\"agency-name-launch-details\">\r\n            {{agency.name}}\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </ng-template>\r\n  </div>\r\n</ng-template>\r\n"
 
 /***/ }),
 
@@ -857,7 +857,7 @@ module.exports = ".rocket-launch {\r\n    text-align: left;\r\n    width: 320px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"rocket-launch\">\r\n  <div class=\"name-rocket-launch\">{{rocketLaunch.name}}</div>\r\n  <ng-template [ngIf]=\"periodTime\">\r\n    <div class=\"period-rocket-launch\">Until launch <span style=\"font-weight: 800;\">{{periodTime}}</span></div>\r\n  </ng-template>\r\n  <div><span><img src=\"/assets/svg/where.svg\"></span>\r\n    <span class=\"date-rocket-launch\">{{rocketLaunch.net}}</span>\r\n  </div>\r\n  <div class=\"location-rocket-launch-div\"><span><img src=\"/assets/svg/location.svg\"></span>\r\n    <span class=\"location-rocket-launch\">{{rocketLaunch.location.name}}</span>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"rocket-launch\">\r\n  <div class=\"name-rocket-launch\">{{rocketLaunch.name}}</div>\r\n  <ng-template [ngIf]=\"periodTime\">\r\n    <div class=\"period-rocket-launch\">Until launch <span style=\"font-weight: 800;\">{{periodTime}}</span></div>\r\n  </ng-template>\r\n  <div><span><img src=\"./assets/svg/where.svg\"></span>\r\n    <span class=\"date-rocket-launch\">{{rocketLaunch.net}}</span>\r\n  </div>\r\n  <div class=\"location-rocket-launch-div\"><span><img src=\"./assets/svg/location.svg\"></span>\r\n    <span class=\"location-rocket-launch\">{{rocketLaunch.location.name}}</span>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -962,7 +962,7 @@ module.exports = ".countries {\r\n    border: 0;\r\n    font-size: 18px;\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"open; then thenBlock else elseBlock\"></div>\r\n<ng-template #thenBlock>\r\n    <button class=\"countries expanded\" (click)=\"openSwitch()\">\r\n        Countries\r\n        <img src=\"/assets/svg/UpArrow.svg\" />\r\n    </button>\r\n    <label (click)=\"selectCountry(country)\" class=\"contain\" *ngFor=\"let country of countries\">\r\n        <input class=\"country-marker\" type=\"checkbox\" id=\"scales\" />\r\n        <span class=\"country-name\">{{country}}</span>\r\n        <span class=\"checkmark\"></span>\r\n        <!-- <label class=\"country-name\" for=\"scales\">{{country}}</label> -->\r\n    </label>\r\n</ng-template>\r\n\r\n<ng-template #elseBlock>\r\n    <button class=\"countries collapsed\" (click)=\"openSwitch()\">\r\n        Countries\r\n        <img src=\"/assets/svg/DownArrow.svg\" />\r\n    </button>\r\n</ng-template>"
+module.exports = "<div *ngIf=\"open; then thenBlock else elseBlock\"></div>\r\n<ng-template #thenBlock>\r\n    <button class=\"countries expanded\" (click)=\"openSwitch()\">\r\n        Countries\r\n        <img src=\"./assets/svg/UpArrow.svg\" />\r\n    </button>\r\n    <label (click)=\"selectCountry(country)\" class=\"contain\" *ngFor=\"let country of countries\">\r\n        <input class=\"country-marker\" type=\"checkbox\" id=\"scales\" />\r\n        <span class=\"country-name\">{{country}}</span>\r\n        <span class=\"checkmark\"></span>\r\n        <!-- <label class=\"country-name\" for=\"scales\">{{country}}</label> -->\r\n    </label>\r\n</ng-template>\r\n\r\n<ng-template #elseBlock>\r\n    <button class=\"countries collapsed\" (click)=\"openSwitch()\">\r\n        Countries\r\n        <img src=\"./assets/svg/DownArrow.svg\" />\r\n    </button>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1304,7 +1304,7 @@ module.exports = ".right-side {\r\n    position: absolute;\r\n    top: 40px;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template [ngIf]=\"openList || year\">\r\n  <div class=\"right-side\">\r\n    <ng-template [ngIf]=\"launchId\">\r\n      <app-launch-details [launchId]=\"launchId\"></app-launch-details>\r\n    </ng-template>\r\n\r\n    <ng-template [ngIf]=\"!launchId\">\r\n      <app-list-of-launches [rocketLaunchesInput]=\"rocketLaunchesInput\" [filterType]=\"filterType\" [year]=\"year\"\r\n        (onChangedLaunchId)=\"onChanged($event)\"></app-list-of-launches>\r\n    </ng-template>\r\n  </div>\r\n  <div class=\"right-button\">\r\n    <ng-template [ngIf]=\"launchId\">\r\n      <div (click)=\"backToList()\"><img src=\"/assets/svg/Back.svg\"></div>\r\n    </ng-template>\r\n\r\n    <ng-template [ngIf]=\"!launchId\">\r\n      <div (click)=\"closeList()\"><img src=\"/assets/svg/close.svg\"></div>\r\n    </ng-template>\r\n  </div>\r\n</ng-template>"
+module.exports = "<ng-template [ngIf]=\"openList || year\">\r\n  <div class=\"right-side\">\r\n    <ng-template [ngIf]=\"launchId\">\r\n      <app-launch-details [launchId]=\"launchId\"></app-launch-details>\r\n    </ng-template>\r\n\r\n    <ng-template [ngIf]=\"!launchId\">\r\n      <app-list-of-launches [rocketLaunchesInput]=\"rocketLaunchesInput\" [filterType]=\"filterType\" [year]=\"year\"\r\n        (onChangedLaunchId)=\"onChanged($event)\"></app-list-of-launches>\r\n    </ng-template>\r\n  </div>\r\n  <div class=\"right-button\">\r\n    <ng-template [ngIf]=\"launchId\">\r\n      <div (click)=\"backToList()\"><img src=\"./assets/svg/Back.svg\"></div>\r\n    </ng-template>\r\n\r\n    <ng-template [ngIf]=\"!launchId\">\r\n      <div (click)=\"closeList()\"><img src=\"./assets/svg/close.svg\"></div>\r\n    </ng-template>\r\n  </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1497,7 +1497,7 @@ module.exports = "div.scrollyears {\r\n  position: absolute;\r\n  background: tr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"for-all-time-contaier\">\r\n  <button class=\"for-all-time-button\" (click)=\"onAllTimeClick()\">\r\n    FOR ALL TIME\r\n  </button>\r\n</div>\r\n<div class=\"scrollyears\">\r\n  <button id=\"backArrow\" [disabled]=\"isFirstPage\" class=\"arrowbutton\" (click)=\"onBackClick()\">\r\n    <img src=\"/assets/svg/LeftArrow.svg\">\r\n  </button>\r\n  <ng-container *ngFor=\"let year of displayedYears\">\r\n    <button *ngIf=\"selectedYear === year\" class=\"yearbuttonSelected\" (click)=\"onDateClick(year)\">\r\n      {{year}}\r\n    </button>\r\n    <button *ngIf=\"selectedYear !== year\" class=\"yearbutton\" (click)=\"onDateClick(year)\">\r\n      {{year}}\r\n    </button>\r\n  </ng-container>\r\n  <button id=\"nextArrow\" [disabled]=\"isLastPage\" class=\"arrowbutton\" (click)=\"onNextClick()\">\r\n    <img src=\"/assets/svg/Group 2.svg\" />\r\n  </button>\r\n</div>\r\n"
+module.exports = "<div class=\"for-all-time-contaier\">\r\n  <button class=\"for-all-time-button\" (click)=\"onAllTimeClick()\">\r\n    FOR ALL TIME\r\n  </button>\r\n</div>\r\n<div class=\"scrollyears\">\r\n  <button id=\"backArrow\" [disabled]=\"isFirstPage\" class=\"arrowbutton\" (click)=\"onBackClick()\">\r\n    <img src=\"./assets/svg/LeftArrow.svg\">\r\n  </button>\r\n  <ng-container *ngFor=\"let year of displayedYears\">\r\n    <button *ngIf=\"selectedYear === year\" class=\"yearbuttonSelected\" (click)=\"onDateClick(year)\">\r\n      {{year}}\r\n    </button>\r\n    <button *ngIf=\"selectedYear !== year\" class=\"yearbutton\" (click)=\"onDateClick(year)\">\r\n      {{year}}\r\n    </button>\r\n  </ng-container>\r\n  <button id=\"nextArrow\" [disabled]=\"isLastPage\" class=\"arrowbutton\" (click)=\"onNextClick()\">\r\n    <img src=\"./assets/svg/Group 2.svg\" />\r\n  </button>\r\n</div>\r\n"
 
 /***/ }),
 
